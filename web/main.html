@@ -1,15 +1,32 @@
-<!--create base html page-->
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Тест</title>
-
-        <script src = eel.js></script> 
-        <link rel="icon" type = "image/png" href = "/favicon.png">
+    <head> 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Калькулятор догона</title>
+        <link href="main.css" rel="stylesheet">
     </head>
-<body>
-
-    <h1>Тест</h1>
-</body>
+    <body> 
+        <div class="calc"> 
+            <span id="title">Калькулятор догона</span>
+            <input id = W type = "number" placeholder="Введите сколько хотите выиграть"> 
+            <input id = L type = "number" placeholder="Введите, сколько уже проиграли"> 
+            <input id = O type = "number" placeholder="Введите коэффициент на текущую ставку"> 
+            <button onclick = "calculate()"> Рассчитать ставку </button>
+            <span id="result">Ваш результат будет написан здесь</span>
+        </div>
+        <script src = "../eel.js"></script>
+        <script>
+            result_text = document.getElementById("result");
+            win = document.getElementById("W");
+            lose = document.getElementById("L");
+            outcome = document.getElementById("O");
+            function calculate() {
+                eel.dogon_calculator(win.value, lose.value, outcome.value)(res);
+            }
+            function res(result) {
+                result_text.innerHTML = result;
+            }
+           </script>
+    </body>
 </html>
