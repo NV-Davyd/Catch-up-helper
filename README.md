@@ -1,3 +1,3 @@
-# web-app
+# catch-up helper
 
-test web application using python, html, css and else
+This application counts the amount of money to bet for you
