@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bet Calculator</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="calc">
+            <h1 id="title">Bet Calculator</h1>
+            <input id="W" type="number" placeholder="Enter desired win amount">
+            <input id="L" type="number" placeholder="Enter amount already lost">
+            <input id="O" type="number" placeholder="Enter current bet coefficient">
+            <button onclick="calculate()">Calculate Bet</button>
+            <div id="result">Your result will be displayed here</div>
+        </div>
+    </div>
+    <script>
+        function calculate() {
+            let win = parseFloat(document.getElementById("W").value);
+            let lose = parseFloat(document.getElementById("L").value);
+            let outcome = parseFloat(document.getElementById("O").value);
+
+            if (isNaN(win) || isNaN(lose) || isNaN(outcome)) {
+                alert("Please enter valid numbers in all fields.");
+                return;
+            }
+
+            if (win <= 0 || lose < 0 || outcome <= 1) {
+                alert("Invalid input values. Please enter correct values.");
+                return;
+            }
+
+            let result = (win + lose) / (outcome - 1);
+            document.getElementById("result").innerHTML = "Next bet: " + result.toFixed(2);
+        }
+    </script>
+</body>
+</html>
